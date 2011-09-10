@@ -1,0 +1,24 @@
+html, body {
+    margin:0;
+    padding:0;
+}
+
+#viz {
+    width: 700px;
+    height: 700px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+#tweets {
+    float: right;
+    width: 400px;
+    height: 500px;
+    padding-top: 120px;
+    padding-right: 5px;
+}
+
+.tweet {
+    padding-bottom: 10px;
+    font-size: 14px;
+}
