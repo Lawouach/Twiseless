@@ -31,7 +31,7 @@ You can install them via easy_install|distribute|pip as your environment allows.
 OAuth Requirements
 ------------------
 
-This demo uses the Twitter API to fetch data, this means you must create a twitter application to get a consumer key and secret token. So please go ahead and create a dummy app at https://dev.twitter.com/. You will be required to input the base URL of your app, which will likely be running on your local machine. Use http://127.0.0.1:8090 since http://localhost:8090 will not be permitted.
+This demo uses the Twitter API to fetch data, this means you must create a twitter application to get a consumer key and secret token. So please go ahead and create a dummy app at https://dev.twitter.com/. You will be required to input the base URL of your app, which will likely be running on your local machine. Use http://127.0.0.1:8090/ since http://localhost:8090/ will not be permitted.
 
 
 Overview
