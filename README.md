@@ -1,5 +1,7 @@
 <!-- -*- markdown -*- -->
 
+![Twiseless Screenshot](http://www.defuze.org/oss/twiseless/twiseless_screenshot.png)
+
 Introduction
 ============
 Twiseless aims at providing a demo of the CherryPy framework in its version 3.2.0, demonstrating many aspects of the framework such as:
