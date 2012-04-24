@@ -22,11 +22,13 @@ Requirements
 
 This demo has the following dependencies:
 
- * CherryPy 3.2.0 (yeah well duh!)
- * Mako
- * SQLAlchemy
- * python-oauth2
- * python-dateutil
+CherryPy==3.2.2
+Mako==0.7.0
+MarkupSafe==0.15
+SQLAlchemy==0.7.6
+httplib2==0.7.4
+oauth2==1.5.211
+python-dateutil==2.1
 
 You can install them via easy_install|distribute|pip as your environment allows.
 
