@@ -46,7 +46,7 @@ class Twiseless(object):
                 "id": "%d" % user_id,
                 "name": username,
                 "data": {
-                    "$color": "#cf5",
+                    "$color": "#666633",
                     "$height": 120,
                     "$angularWidth": count * 360 / (total * 1.0)
                     },

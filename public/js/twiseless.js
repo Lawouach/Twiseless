@@ -7,13 +7,13 @@
 	injectInto: 'viz',
 	Node: {
 	  overridable: true,
-	  type: 'gradient-multipie'
+	  type: 'multipie'
 	},
 	Edge: {
 	  overridable: true,
 	  type: 'hyperline',
 	  lineWidth: 2,
-	  color: '#777'
+	  color: '#990033'
 	},
 	Label: {
 	  type: 'Native'
@@ -22,10 +22,10 @@
 	  enable: true,
 	  type: 'Native',
 	  stylesClick: {
-	    'color': '#33dddd'
+	    'color': '#990033'
 	  },
 	  stylesHover: {
-	    'color': '#dd3333'
+	    'color': '#CCCC99'
 	  },
 	  duration: 700
 	},
@@ -36,10 +36,13 @@
 	    if (!node) return;
 	    var tweets = $("#tweets");
 	    tweets.empty();
+	    tweets.hide();
+
 	    $.getJSON("/tweets/" + node.id, function(data) {
 	      $.each(data, function(i, tweet) {
-		tweets.append($("<div />").addClass('tweet').append(tweet));
+		  tweets.append($("<div />").addClass('tweet').append(tweet));
 	      });
+              tweets.show('slow')
 	    });
 	  },
 	  levelDistance: 190,
