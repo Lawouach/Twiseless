@@ -1,6 +1,6 @@
 <!-- -*- markdown -*- -->
 
-![Twiseless Screenshot](http://www.defuze.org/oss/twiseless/twiseless_screenshot.png)
+![Twiseless Screenshot](http://www.defuze.org/oss/twiseless/twiseless_screenshot2.png)
 
 Introduction
 ============
@@ -29,6 +29,7 @@ This demo has the following dependencies:
  * httplib2==0.7.4
  * oauth2==1.5.211
  * python-dateutil==2.1
+ * guess-language==0.2
 
 You can install them via easy_install|distribute|pip as your environment allows.
 
