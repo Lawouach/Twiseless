@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import json
+import re
 
 import cherrypy
 from cherrypy.process import wspbus, plugins
 import oauth2 as oauth
 from dateutil.parser import parse
+from guess_language import guessLanguageTag
 
 from lib.model import Base
 from lib.model.user import User
@@ -53,6 +55,8 @@ class TweetEnginePlugin(plugins.SimplePlugin):
                                        user.oauth_token,
                                        user.oauth_token_secret).pop()
             tweets = json.loads(content)
+            if newest: cherrypy.log("Retrieved %d tweets since %s" % (len(tweets), newest.date))
+            else: cherrypy.log("Retrieved %d tweets" % (len(tweets), ))
             for tweet in tweets:
                 user = tweet.get('user')
                 if user:
@@ -60,6 +64,14 @@ class TweetEnginePlugin(plugins.SimplePlugin):
                                         user_id=user['id'],
                                         tweet=tweet['text'],
                                         tweet_id=tweet['id'],
+                                        lang=self.guess_language(tweet['text']),
                                         date=parse(tweet['created_at'])))
 
         cherrypy.engine.publish('commit-session')
+
+    def guess_language(self, tweet):
+        # based on the simple idea at:
+        # http://granades.com/2009/04/06/using-regular-expressions-to-match-twitter-users-and-hashtags/
+        tweet = re.sub(r'(\A|\s)@(\w+)', r'\1', tweet)
+        tweet = re.sub(r'(\A|\s)#(\w+)', r'\1', tweet)
+        return guessLanguageTag(tweet.strip()).decode('utf-8')

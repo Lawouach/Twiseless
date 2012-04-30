@@ -47,7 +47,7 @@ class Twiseless(object):
                 "name": username,
                 "data": {
                     "$color": "#666633",
-                    "$height": 120,
+                    "$height": 65,
                     "$angularWidth": count * 360 / (total * 1.0)
                     },
                 "adjacencies": []
@@ -59,9 +59,15 @@ class Twiseless(object):
     @cherrypy.tools.json_out()
     def tweets(self, user_id):
         db = cherrypy.request.db
-        tweets = []
+        tweets = {}
         for mention in Mention.tweets(db, int(user_id)):
-            tweets.append(mention.tweet)
+            if mention.lang not in tweets:
+                tweets[mention.lang] = []
+                
+            tweets[mention.lang].append({
+                'text': mention.tweet
+                }
+            )
 
         return tweets
 

@@ -22,15 +22,18 @@
       <div id="header">
 	<h1>:: Twiseless</h1>
       </div>
-      <div id="content">
-	<div id="viz"></div>
-	<div id="tweets">
+      <div id="content-container">
+	<div id="content">
+	  <div id="tweets"></div>
 	</div>
-      </div>
-      <div id="footer">
-	<div id="footer-info">
-	  &copy; Sylvain Hellegouarch, licensed under a <a href="https://github.com/Lawouach/Twiseless/blob/master/LICENSE">BSD license</a>.
-	  Layout mostly taken from <a href="http://www.maxdesign.com.au/articles/css-layouts/one-fixed/">maxdesign</a>.
+	<div id="aside">
+	  <div id="viz"></div>
+	</div>
+	<div id="footer">
+	  <div id="footer-info">
+	    &copy; Sylvain Hellegouarch, licensed under a <a href="https://github.com/Lawouach/Twiseless/blob/master/LICENSE">BSD license</a>.
+	    Layout mostly taken from <a href="http://www.maxdesign.com.au/articles/css-layouts/two-fixed/">maxdesign</a>.
+	  </div>
 	</div>
       </div>
     </div>

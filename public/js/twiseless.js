@@ -38,14 +38,26 @@
 	    tweets.empty();
 	    tweets.hide();
 
+	    tweets.append($("<div><span>"+node.name+" said:</span></div>").addClass('tweet-info'));
+
 	    $.getJSON("/tweets/" + node.id, function(data) {
-	      $.each(data, function(i, tweet) {
-		  tweets.append($("<div />").addClass('tweet').append(tweet));
-	      });
-              tweets.show('slow')
+		for(var lang in data) {
+		    var block = $("<div />").addClass('tweet-block');
+		    block.append($("<div><span>Language: "+lang+"</span></div>").addClass('tweet-lang'));
+		    $.each(data[lang], function(i, tweet) {
+			block.append($("<div />").addClass('tweet').append(tweet.text));
+		    });
+		    tweets.append(block);
+		}
+		tweets.show('slow');
 	    });
+	    
+           viz.rotate(node, 'animate', {  
+               duration: 1000,  
+               transition: $jit.Trans.Quart.easeInOut  
+           });
 	  },
-	  levelDistance: 190,
+	  levelDistance: 90,
 	  onCreateLabel: function(domElement, node){
 	    var labels = viz.config.Label.type;
 	    if (labels === 'HTML') {
